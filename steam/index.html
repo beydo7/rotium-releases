@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ROTIUM – Shop-Seiten-Vorschau (Entwurf)</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/icon.png">
+<style>
+@font-face{font-family:Osw;src:url(fonts/oswald-latin-700-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Typ;src:url(fonts/special-elite-latin-400-normal.woff2) format("woff2");font-display:swap}
+:root{
+  --bg:#1b2838; --bg2:#16202d; --txt:#acb2b8; --txt2:#8f98a0; --hi:#fff; --link:#66c0f4;
+  --tagbg:rgba(103,193,245,.2); --tagtx:#67c1f5; --rot:#d42a3c; --cream:#f1e6c8;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;color:var(--txt);font:14px/1.5 Arial,Helvetica,"Segoe UI",sans-serif;
+  background:var(--bg) url(img/page_bg.jpg) center top/1438px auto no-repeat;}
+body:before{content:"";position:absolute;left:0;right:0;top:0;height:809px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(27,40,56,0) 0%,rgba(27,40,56,.35) 55%,var(--bg) 100%)}
+a{color:var(--link);text-decoration:none}
+a:hover{color:#fff}
+.wrap{position:relative;width:940px;margin:0 auto}
+
+/* Entwurf-Hinweis (kein echtes Steam) */
+.draft{position:relative;z-index:5;background:#0d0a0b;border-bottom:1px solid #3a1418;color:#c9b9a0;font-size:12px}
+.draft .wrap{display:flex;align-items:center;gap:12px;min-height:40px;padding:6px 0}
+.draft .st{font-family:Typ;color:var(--rot);border:2px solid var(--rot);padding:0 8px;transform:rotate(-3deg);letter-spacing:.12em;font-size:13px;line-height:20px}
+.draft b{color:var(--cream)}
+.draft .r{margin-left:auto;display:flex;gap:16px;white-space:nowrap}
+.draft .r a{color:#e7d9bd}
+
+/* Kopf */
+.crumbs{padding-top:26px;font-size:12px;color:var(--txt2)}
+.crumbs a{color:var(--txt2)}.crumbs a:hover{color:#fff}
+.apphead{display:flex;align-items:flex-end;justify-content:space-between;margin:4px 0 14px}
+.apphead h1{margin:0;color:#fff;font:400 26px/1.2 Arial,Helvetica,sans-serif;letter-spacing:.02em}
+.btn-ghost{display:inline-block;padding:0 15px;line-height:30px;border-radius:2px;color:#67c1f5;background:rgba(103,193,245,.2);font-size:14px;cursor:pointer}
+.btn-ghost:hover{background:linear-gradient(-60deg,#417a9b 5%,#67c1f5 95%);color:#fff}
+
+/* Oberer Block */
+.top{display:flex;gap:16px;background:rgba(0,0,0,.2);padding:0;margin-bottom:16px}
+.left{width:600px}
+.right{width:324px;padding-bottom:16px}
+.player{position:relative;width:600px;height:338px;background:#000;overflow:hidden;cursor:zoom-in}
+.player img,.player video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.player video{cursor:default}
+.player .fade{animation:fd .35s}
+@keyframes fd{from{opacity:.2}to{opacity:1}}
+.strip{position:relative;margin-top:4px;height:69px;overflow:hidden}
+.strip .row{display:flex;gap:4px;transition:transform .35s;will-change:transform}
+.thumb{position:relative;flex:0 0 116px;height:65px;border:2px solid transparent;cursor:pointer;opacity:.75;background:#000}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb.on{border-color:#fff;opacity:1}
+.thumb:hover{opacity:1}
+.thumb.vid:after{content:"";position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:rgba(0,0,0,.6) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cpath d='M10 7l9 6-9 6z' fill='%23fff'/%3E%3C/svg%3E") center/26px no-repeat}
+.slider{height:18px;margin-top:6px;background:rgba(0,0,0,.25);border-radius:3px;position:relative;display:flex;align-items:center;justify-content:space-between}
+.slider .arr{width:30px;height:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#67c1f5;font-size:11px}
+.slider .arr:hover{background:rgba(103,193,245,.25);color:#fff}
+.slider .track{position:absolute;left:34px;right:34px;top:4px;height:10px}
+.slider .knob{position:absolute;top:0;height:10px;border-radius:3px;background:#3d6c8d;transition:left .35s}
+
+.capsule{width:324px;height:151px;display:block}
+.capsule img{width:100%;height:100%;display:block}
+.snippet{margin:12px 0 10px;color:#c6d4df;font-size:13px;line-height:18px}
+.meta{font-size:12px;line-height:22px}
+.meta .k{display:inline-block;width:132px;color:#556772;text-transform:uppercase;font-size:10px;letter-spacing:.02em}
+.meta .v{color:#c6d4df}
+.meta .muted{color:#8f98a0}
+.meta .row{margin-bottom:1px;white-space:nowrap}
+.meta hr{border:0;border-top:1px solid rgba(255,255,255,.06);margin:8px 0}
+.tags-h{font-size:12px;color:#556772;margin:12px 0 4px}
+.tags{display:flex;flex-wrap:wrap;gap:2px}
+.tag{background:var(--tagbg);color:var(--tagtx);font-size:11px;line-height:19px;padding:0 7px;border-radius:2px;cursor:pointer;white-space:nowrap}
+.tag:hover{background:#67c1f5;color:#fff}
+.tag.more{padding:0 6px}
+
+/* Wunschliste-Leiste */
+.queue{display:flex;gap:4px;align-items:center;padding:14px 16px;margin-bottom:22px;
+  background:linear-gradient(90deg,rgba(103,193,245,.15),rgba(103,193,245,.06));border-radius:2px}
+.btn-blue{display:inline-flex;align-items:center;gap:6px;padding:0 15px;line-height:30px;border-radius:2px;font-size:14px;color:#67c1f5;background:rgba(103,193,245,.2);cursor:pointer;user-select:none}
+.btn-blue:hover{color:#fff;background:linear-gradient(-60deg,#417a9b 5%,#67c1f5 95%)}
+.btn-blue.added{color:#fff;background:linear-gradient(-60deg,#3d6c8d 5%,#2e5470 95%)}
+.queue .note{margin-left:auto;font-size:12px;color:#8f98a0}
+
+/* Hauptspalten */
+.cols{display:flex;gap:16px}
+.main{width:616px}
+.side{width:308px}
+
+.buybox{position:relative;margin-bottom:28px;padding:16px 16px 26px;border-radius:4px;
+  background:linear-gradient(-60deg,rgba(226,244,255,.3) 5%,rgba(84,107,115,.3) 95%)}
+.buybox h2{margin:0 0 12px;color:#fff;font:400 21px/1.2 Arial,sans-serif}
+.buybox p{margin:0;color:#c6d4df;font-size:13px}
+.buybox .plat{position:absolute;right:16px;top:20px;display:flex;gap:6px;opacity:.85}
+.buyrow{position:absolute;right:16px;bottom:-17px;display:flex;align-items:stretch;background:#000;padding:2px;border-radius:2px}
+.buyrow .price{padding:0 12px;line-height:30px;font-size:13px;color:#c6d4df;background:#000}
+.btn-green{display:inline-block;padding:0 15px;line-height:30px;border-radius:2px;color:#d2efa9;font-size:15px;cursor:pointer;
+  background:linear-gradient(to right,#75b022 5%,#588a1b 95%);text-shadow:1px 1px 0 rgba(0,0,0,.3)}
+.btn-green:hover{color:#fff;background:linear-gradient(to right,#8ed629 5%,#6aa621 95%)}
+.coming{margin-bottom:28px;padding:16px;border-radius:4px;background:rgba(0,0,0,.2);border-left:3px solid var(--link)}
+.coming .h{color:#fff;font-size:15px;margin-bottom:4px}
+.coming .d{font-size:13px;color:#c6d4df}
+.coming .d b{color:#67c1f5;font-weight:400}
+
+.sect-h{margin:0 0 10px;color:#fff;font:400 14px/26px Arial,sans-serif;letter-spacing:.03em;text-transform:uppercase;
+  background-image:linear-gradient(90deg,#2b475f 0%,rgba(43,71,95,0) 100%);background-size:100% 1px;background-repeat:no-repeat;background-position:bottom;padding-bottom:2px}
+.about{color:#acb2b8;font-size:14px;line-height:1.6;margin-bottom:34px}
+.about img,.about video{display:block;max-width:100%;margin:14px 0}
+.about video{width:616px;height:auto;aspect-ratio:16/9;background:#000}
+.about .ban{width:616px;height:75px;margin:28px 0 12px}
+.about h3{color:#fff;font-size:15px;margin:18px 0 4px;font-weight:700}
+.about p{margin:0 0 10px}
+.about ul{margin:4px 0 12px;padding-left:20px}
+.about li{margin:3px 0}
+.about li b,.about p b{color:#dfe3e6}
+.about .quote{margin:12px 0;padding:12px 16px;border-left:3px solid var(--rot);background:rgba(0,0,0,.25);color:#e2d6bb;font-family:Typ;font-size:14px;line-height:1.55}
+.about .grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:12px 0}
+.about .grid2 video{width:100%;margin:0}
+.about .cap{font-size:12px;color:#8f98a0;margin:-8px 0 12px}
+
+.ai{margin-bottom:34px;font-size:13px;line-height:1.55;color:#acb2b8}
+.ai p{margin:0 0 8px}
+
+.sysreq{display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:12px;line-height:1.55;margin-bottom:34px}
+.sysreq .h{color:#c6d4df;text-transform:uppercase;font-size:12px;margin-bottom:6px}
+.sysreq ul{list-style:none;margin:0;padding:0}
+.sysreq li{margin:0 0 4px;color:#acb2b8}
+.sysreq li b{color:#8f98a0;font-weight:400}
+.ostabs{display:flex;gap:2px;margin-bottom:12px}
+.ostabs span{padding:4px 12px;font-size:12px;background:rgba(0,0,0,.3);color:#c6d4df;border-radius:2px 2px 0 0}
+.ostabs span.on{background:#2a475e;color:#fff}
+
+.reviews{margin-bottom:40px;padding:22px;text-align:center;background:rgba(0,0,0,.2);border-radius:3px}
+.reviews .t{color:#fff;font-size:15px;margin-bottom:4px}
+.reviews .s{color:#8f98a0;font-size:13px}
+
+/* Seitenleiste */
+.block{background:rgba(0,0,0,.2);padding:14px 16px;margin-bottom:16px;border-radius:2px}
+.block .bh{color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px}
+.feat{display:flex;flex-direction:column;gap:2px}
+.feat a{display:flex;align-items:center;gap:10px;padding:4px 8px;background:rgba(103,193,245,.08);color:#67c1f5;font-size:13px;border-radius:2px}
+.feat a:hover{background:rgba(103,193,245,.25);color:#fff}
+.feat svg{width:20px;height:20px;flex:0 0 20px;fill:#67c1f5}
+.feat .pl{margin-left:auto;font-size:10px;color:#8f98a0;text-transform:uppercase;letter-spacing:.04em}
+.deck{display:flex;align-items:center;gap:10px;font-size:12px;color:#c6d4df}
+.deck .ic{width:30px;height:30px;border-radius:50%;background:#3d4450;display:flex;align-items:center;justify-content:center;color:#c6d4df;font-weight:700}
+table.lang{width:100%;border-collapse:collapse;font-size:12px}
+.lang th{color:#8f98a0;font-weight:400;font-size:11px;text-align:center;padding:2px}
+.lang th:first-child{text-align:left}
+.lang td{padding:3px 2px;border-top:1px solid rgba(255,255,255,.04);color:#c6d4df}
+.lang td.c{text-align:center;color:#67c1f5}
+.details{font-size:12px;line-height:1.75}
+.details b{color:#556772;font-weight:400;text-transform:uppercase;font-size:11px}
+.links a{display:flex;align-items:center;gap:8px;padding:5px 8px;margin-bottom:2px;background:rgba(103,193,245,.08);font-size:13px;border-radius:2px}
+.links a:hover{background:rgba(103,193,245,.25)}
+.rating{display:flex;gap:12px;align-items:flex-start;font-size:12px;color:#c6d4df}
+.rating .usk{flex:0 0 46px;height:46px;border-radius:6px;background:#2f8a3a;color:#fff;font:700 20px/46px Arial;text-align:center}
+.rating small{color:#8f98a0}
+
+/* Fuß */
+.foot{margin-top:30px;padding:26px 0 50px;background:#171a21;color:#8f98a0;font-size:12px}
+.foot .wrap{display:flex;gap:30px;align-items:center}
+.foot .logo{font-family:Osw;font-size:34px;line-height:1;color:var(--cream);letter-spacing:.01em}
+.foot .logo b{color:var(--rot);font-weight:inherit}
+
+/* Bildanzeige */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;flex-direction:column}
+.lb.on{display:flex}
+.lb img{max-width:92vw;max-height:84vh;box-shadow:0 0 40px #000}
+.lb .bar{margin-top:12px;display:flex;gap:16px;align-items:center;color:#c6d4df;font-size:13px}
+.lb .bar span{cursor:pointer;padding:4px 12px;background:rgba(103,193,245,.2);color:#67c1f5;border-radius:2px}
+.lb .bar span:hover{color:#fff}
+.toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);opacity:0;transition:.25s;background:#2a475e;color:#fff;padding:10px 18px;border-radius:3px;font-size:13px;box-shadow:0 4px 20px rgba(0,0,0,.5);z-index:60}
+.toast.on{opacity:1;transform:translateX(-50%)}
+
+@media (max-width:960px){
+  .wrap{width:auto;margin:0 10px}
+  .top,.cols{flex-direction:column}
+  .left,.right,.main,.side,.player,.capsule{width:100%}
+  .player{height:auto;aspect-ratio:16/9}
+  .capsule{height:auto}
+  .about video,.about .ban{width:100%;height:auto}
+  .draft .r{display:none}
+  .meta .k{width:auto;margin-right:8px}
+}
+</style>
+</head>
+<body>
+
+<div class="draft"><div class="wrap">
+  <span class="st">ENTWURF</span>
+  <span><b>Vorschau der Shop-Seite</b> – so könnte die Steam-Seite von ROTIUM aussehen. Keine echte Steam-Seite, Knöpfe ohne Funktion.</span>
+  <span class="r"><a href="../play/">Im Browser spielen</a><a href="https://github.com/beydo7/rotium-releases/releases/latest">Download</a></span>
+</div></div>
+
+<div class="wrap">
+  <div class="crumbs"><a href="#">Alle Spiele</a> &gt; <a href="#">Action-Spiele</a> &gt; <a href="#">ROTIUM</a></div>
+  <div class="apphead">
+    <h1>ROTIUM</h1>
+    <span class="btn-ghost" data-toast="Hier läge später der Community-Hub (Diskussionen, Screenshots, Guides).">Community-Hub</span>
+  </div>
+
+  <div class="top">
+    <div class="left">
+      <div class="player" id="player"></div>
+      <div class="strip"><div class="row" id="row"></div></div>
+      <div class="slider"><span class="arr" id="prev">◀</span><div class="track"><div class="knob" id="knob"></div></div><span class="arr" id="next">▶</span></div>
+    </div>
+    <div class="right">
+      <a class="capsule" href="#about"><img src="img/capsule_header.jpg" alt="ROTIUM"></a>
+      <div class="snippet">Herbst 1968. Ein Meteorit aus rot glühendem Gestein lässt die Toten der Sperrzone Kessel 9 wieder aufstehen. Halte zwanzig Wellen stand, bau dir aus Waffen, Fundstücken und verrückten Kombos ein unaufhaltsames Arsenal – allein oder zu zweit. Dann kommt der Heli. Vielleicht.</div>
+      <div class="meta">
+        <div class="row"><span class="k">Neueste Rezensionen:</span><span class="muted">Keine Nutzerrezensionen</span></div>
+        <div class="row"><span class="k">Alle Rezensionen:</span><span class="muted">Keine Nutzerrezensionen</span></div>
+        <hr>
+        <div class="row"><span class="k">Veröffentlichung:</span><span class="v">Demnächst</span></div>
+        <div class="row"><span class="k">Entwickler:</span><a href="#">Beyd</a></div>
+        <div class="row"><span class="k">Publisher:</span><a href="#">Beyd</a></div>
+      </div>
+      <div class="tags-h">Beliebte nutzerdefinierte Tags für dieses Produkt:</div>
+      <div class="tags">
+        <span class="tag">Roguelite</span><span class="tag">Zombies</span><span class="tag">Horde-Survival</span><span class="tag">Bullet Heaven</span><span class="tag">Koop</span><span class="tag">Online-Koop</span><span class="tag">Action-Roguelike</span><span class="tag">Kalter Krieg</span><span class="tag">Stilisiert</span><span class="tag">Indie</span><span class="tag more">+</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="queue">
+    <span class="btn-blue" id="wish">Auf die Wunschliste</span>
+    <span class="btn-blue" id="follow">Folgen</span>
+    <span class="btn-blue" data-toast="Ignorieren? Lieber nicht. 😉">Ignorieren</span>
+    <span class="note">Steht auf <b style="color:#c6d4df;font-weight:400">0</b> Wunschlisten · nur eine Vorschau</span>
+  </div>
+
+  <div class="cols">
+    <div class="main">
+
+      <div class="coming">
+        <div class="h">Dieses Spiel ist noch nicht auf Steam erhältlich</div>
+        <div class="d">Geplante Veröffentlichung: <b>Demnächst</b><br>Interessiert? Setz ROTIUM auf deine Wunschliste, dann bekommst du Bescheid, sobald es erscheint.</div>
+      </div>
+
+      <div class="buybox">
+        <h2>ROTIUM Demo herunterladen</h2>
+        <p>Spiel die ersten Einsätze kostenlos – solo oder zu zweit.</p>
+        <div class="buyrow"><a class="btn-green" href="https://github.com/beydo7/rotium-releases/releases/latest">Herunterladen</a></div>
+      </div>
+
+      <div class="buybox">
+        <h2>ROTIUM auf die Wunschliste setzen</h2>
+        <p>Werde benachrichtigt, sobald der Einsatz beginnt.</p>
+        <div class="buyrow"><div class="price">Demnächst</div><span class="btn-green" id="wish2">Auf die Wunschliste</span></div>
+      </div>
+
+      <h2 class="sect-h" id="about">Über dieses Spiel</h2>
+      <div class="about">
+        <p><b>ROTIUM</b> ist ein Zombie-Roguelite, das sich wie die Zombie-Abende von früher anfühlt – nur dass du jedes Mal mit einem anderen Arsenal in die Nacht gehst. Wellen werden größer, Zombies klüger, deine Waffen absurder. Halte zwanzig Wellen durch. Dann kommt der Heli.</p>
+
+        <img class="ban" src="img/ban1.jpg" alt="Herbst 1968">
+        <p>Ein Meteorit schlägt in den Bergen nahe der geheimen Forschungsstation <b>Kessel 9</b> ein. Die Wissenschaftler nennen das rot glühende Gestein <b>Rotium</b>. Es lässt Tote wieder aufstehen – und das Militär hält es für die Waffe, die den Kalten Krieg beendet.</p>
+        <p>Drei Wochen später bricht die Eindämmung zusammen. Die Tore sind verriegelt, der Strom ist weg. Dann knackt das alte Funkgerät:</p>
+        <div class="quote">„Halte zwanzig Wellen durch. Dann schicke ich den Helikopter.“ – Echo</div>
+        <p>Woher Echo das alles weiß? Darüber denkst du später nach. Jetzt kommen sie.</p>
+
+        <img class="ban" src="img/ban2.jpg" alt="Zwanzig Wellen">
+        <video src="vid/loop_horde_orbit.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <ul>
+          <li><b>Riesige Horden</b> – hunderte Zombies gleichzeitig, mit Läufern, Brocken, Hunden, Elite-Zombies und Bossen.</li>
+          <li><b>Zombies-Feeling</b> – Tore freikaufen, Generatoren hochfahren, Perk-Automaten, Wunderkiste und eine Schmiede, die deine Waffen auf ein neues Level hebt.</li>
+          <li><b>Echo lernt dazu</b> – wer immer dasselbe baut, bekommt ab Welle 10 Zombies, die genau dagegen abgehärtet sind.</li>
+          <li><b>Befehle, Ereignisse, Überlebende</b> – Stromausfall, Nebel, Elite-Wellen, Signalfeuer zünden, Gerettete zur Evakuierung bringen.</li>
+          <li><b>Evakuierung</b> – nach Welle 20 landet der Heli. Einsteigen – oder für mehr Beute einfach weiterkämpfen.</li>
+        </ul>
+
+        <img class="ban" src="img/ban3.jpg" alt="Bau dein Arsenal">
+        <div class="grid2">
+          <video src="vid/loop_black_hole.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <video src="vid/loop_flamer_snow.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <p>Jeder Einsatz baut sich anders. Mit jeder Beförderung wählst du neue Waffen und Upgrades, nach jeder Welle wartet der Nachschub.</p>
+        <ul>
+          <li><b>31 Waffen</b> – von der Dienstpistole bis zu Tesla-Spule, Gartenzwergen, Wollknäuel und Schwarzem Loch. Jede lässt sich auf Stufe 5 <b>weiterentwickeln</b>.</li>
+          <li><b>60 Fundstücke</b> aus dem Jahr 1968 – vom Roten Telefon bis zum Splitter von „Mutter“. Seltenheit als Geheimhaltungsstufe: Offen, Vertraulich, Geheim, <b>Streng geheim</b>.</li>
+          <li><b>Einsatzprofile</b> – Brandstifter, Frost, Strom, Sprengmeister, Klingen und mehr. Sammle Merkmale und schalte starke Boni frei.</li>
+          <li><b>Reaktionen</b> – zwei Schadensarten am selben Zombie: Dampf, Feuersturm, Resonanz, Zerschmettern … Regen und Eis machen mit.</li>
+          <li><b>Wunderwaffen</b> – eine pro Karte, wenn du weißt, wo du suchen musst.</li>
+        </ul>
+
+        <img class="ban" src="img/ban4.jpg" alt="25 Figuren">
+        <video src="vid/loop_lineup.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <p>Vom harten Soldaten Erik Brandt über die Wissenschaftlerin Dr. Ilse Varga bis zu <b>Oma Gertrud</b> mit Handtasche und Strickzeug, Rocker <b>Johnny Fuzz</b>, Raketenrucksack-Major <b>Juri Sokol</b> oder Bauchredner <b>Bodo &amp; Kalle</b>: 25 Figuren mit eigener Waffe, eigener Fähigkeit und eigenem Humor. Dazu Skins, Waffen-Tarnungen und ein Lager, das du zwischen den Einsätzen ausbaust.</p>
+
+        <img class="ban" src="img/ban5.jpg" alt="Sieben Karten">
+        <video src="vid/loop_wolf_aurora.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <ul>
+          <li><b>Kessel 9</b> – die Forschungsstation, in der alles begann. Mit Güterzug ohne Fahrer.</li>
+          <li><b>Wolfsgrund</b> – Dorf am zugefrorenen See. Das Eis bricht.</li>
+          <li><b>Fort Granit</b> – Armeebasis hoch über dem Meer, Flucht per Transportflugzeug.</li>
+          <li><b>Grauheim</b> – Küstenstadt am Kanal, mit Kaufhaus zum Durchlaufen.</li>
+          <li><b>Seuchenwald</b> – Giftsümpfe, Pilzringe und eine Kapellenruine.</li>
+          <li><b>Atomwüste</b> – Testgelände am Tafelberg, Brücke zum Sprengen.</li>
+          <li><b>Ebene 9</b> – das Finale tief unter der Erde. Drei Enden.</li>
+        </ul>
+        <p>Jede Karte hat ein eigenes <b>Geheimnis</b> mit Aufgabenkette, eigenem Boss und einem Stück Geschichte – am besten zu zweit lösen.</p>
+
+        <img class="ban" src="img/ban6.jpg" alt="Zu zweit und tiefer">
+        <video src="vid/loop_tesla_rain.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <ul>
+          <li><b>Online-Koop zu zweit</b> – Raum-Code eingeben oder Freund einladen, fertig.</li>
+          <li><b>Rund 200 Dienstakten</b> – kleine und große Ziele, die neue Fundstücke, Perks und Komfort freischalten.</li>
+          <li><b>Tagesbefehl</b> – jeden Tag dieselbe Ausgangslage für alle. Wie weit kommst du?</li>
+          <li><b>Bedrohungsstufen</b> – wenn zwanzig Wellen zu leicht werden.</li>
+          <li><b>Lexikon im Akten-Stil</b> – jede Waffe, jeder Zombie, jedes Fundstück zum Nachlesen.</li>
+          <li>Volle <b>Controller-Unterstützung</b> und 8 Sprachen.</li>
+        </ul>
+      </div>
+
+      <h2 class="sect-h">Hinweis zu KI-generierten Inhalten</h2>
+      <div class="ai">
+        <p>Die Entwickler beschreiben, wie ihr Spiel KI nutzt, folgendermaßen:</p>
+        <p>ROTIUM wurde mit Unterstützung von KI entwickelt. Code, Spielwelt, Figuren, Texte und Übersetzungen sind mithilfe von KI entstanden und von Hand geprüft und angepasst. Während des Spiels werden keine Inhalte live per KI erzeugt. Soundeffekte stammen aus frei lizenzierten Quellen.</p>
+      </div>
+
+      <h2 class="sect-h">Systemanforderungen</h2>
+      <div class="ostabs"><span class="on">Windows</span></div>
+      <div class="sysreq">
+        <div>
+          <div class="h">Mindestanforderungen:</div>
+          <ul>
+            <li><b>Erfordert einen 64-Bit-Prozessor und ein 64-Bit-Betriebssystem</b></li>
+            <li><b>Betriebssystem:</b> Windows 10 (64 Bit)</li>
+            <li><b>Prozessor:</b> Vierkern-Prozessor, 3 GHz</li>
+            <li><b>Arbeitsspeicher:</b> 8 GB RAM</li>
+            <li><b>Grafik:</b> GTX 1050 Ti / RX 570, Vulkan 1.2</li>
+            <li><b>Netzwerk:</b> Breitband-Internetverbindung (für Koop)</li>
+            <li><b>Speicherplatz:</b> 2 GB verfügbar</li>
+          </ul>
+        </div>
+        <div>
+          <div class="h">Empfohlen:</div>
+          <ul>
+            <li><b>Erfordert einen 64-Bit-Prozessor und ein 64-Bit-Betriebssystem</b></li>
+            <li><b>Betriebssystem:</b> Windows 10 / 11 (64 Bit)</li>
+            <li><b>Prozessor:</b> Sechskern-Prozessor, z. B. Ryzen 5 3600</li>
+            <li><b>Arbeitsspeicher:</b> 16 GB RAM</li>
+            <li><b>Grafik:</b> RTX 3060 / RX 6600</li>
+            <li><b>Netzwerk:</b> Breitband-Internetverbindung (für Koop)</li>
+            <li><b>Speicherplatz:</b> 2 GB verfügbar</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="sect-h">Kundenrezensionen für ROTIUM</h2>
+      <div class="reviews">
+        <div class="t">Für dieses Produkt gibt es noch keine Rezensionen</div>
+        <div class="s">Sobald ROTIUM erschienen ist, stehen hier die Meinungen der Spieler.</div>
+      </div>
+    </div>
+
+    <div class="side">
+      <div class="block feat">
+        <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8z"/></svg>Einzelspieler</a>
+        <a href="#"><svg viewBox="0 0 24 24"><circle cx="8" cy="7" r="3.4"/><circle cx="16.5" cy="7" r="3.4"/><path d="M1 20c0-3.9 3.1-7 7-7s7 3.1 7 7zM12.4 13.6c1.2-.4 2.6-.6 4.1-.6 3.9 0 7 3.1 7 7h-6.5"/></svg>Online-Koop (2 Spieler)</a>
+        <a href="#"><svg viewBox="0 0 24 24"><path d="M6 3h12v3h3v3a5 5 0 0 1-5 5h-.4A5 5 0 0 1 13 16.9V19h4v2H7v-2h4v-2.1A5 5 0 0 1 8.4 14H8a5 5 0 0 1-5-5V6h3zM5 8v1a3 3 0 0 0 3 3V8zm14 0h-3v4a3 3 0 0 0 3-3z"/></svg>Steam-Errungenschaften<span class="pl">geplant</span></a>
+        <a href="#"><svg viewBox="0 0 24 24"><path d="M7 7h10a5 5 0 0 1 4.9 6l-.9 4.4a2.5 2.5 0 0 1-4.4 1L14.5 16h-5l-2.1 2.4a2.5 2.5 0 0 1-4.4-1L2.1 13A5 5 0 0 1 7 7zm0 3v1.5H5.5V13H7v1.5h1.5V13H10v-1.5H8.5V10zm9.5 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>Volle Controller-Unterstützung</a>
+        <a href="#"><svg viewBox="0 0 24 24"><path d="M19 18H6a5 5 0 0 1-.6-10A6.5 6.5 0 0 1 18 9.5 4.3 4.3 0 0 1 19 18z"/></svg>Steam Cloud<span class="pl">geplant</span></a>
+        <a href="#"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v10h-6v-6H9v6H3z"/></svg>Familienbibliothek</a>
+      </div>
+
+      <div class="block">
+        <div class="bh">Steam-Deck-Kompatibilität</div>
+        <div class="deck"><span class="ic">?</span><span>Unbekannt – wird vor der Veröffentlichung geprüft.</span></div>
+      </div>
+
+      <div class="block">
+        <div class="bh">Sprachen</div>
+        <table class="lang">
+          <tr><th></th><th>Oberfläche</th><th>Vollst. Audio</th><th>Untertitel</th></tr>
+          <tr><td>Deutsch</td><td class="c">✔</td><td></td><td class="c">✔</td></tr>
+          <tr><td>Englisch</td><td class="c">✔</td><td></td><td class="c">✔</td></tr>
+          <tr><td>Französisch</td><td class="c">✔</td><td></td><td class="c">✔</td></tr>
+          <tr><td>Spanisch – Spanien</td><td class="c">✔</td><td></td><td class="c">✔</td></tr>
+          <tr><td>Portugiesisch – Brasilien</td><td class="c">✔</td><td></td><td class="c">✔</td></tr>
+          <tr><td>Russisch</td><td class="c">✔</td><td></td><td class="c">✔</td></tr>
+          <tr><td>Vereinf. Chinesisch</td><td class="c">✔</td><td></td><td class="c">✔</td></tr>
+          <tr><td>Japanisch</td><td class="c">✔</td><td></td><td class="c">✔</td></tr>
+        </table>
+      </div>
+
+      <div class="block">
+        <div class="rating"><div class="usk">12</div><div>Fantasy-Gewalt, Blut<br><small>Beispiel – die echte Einstufung kommt beim Release über den IARC-Fragebogen.</small></div></div>
+      </div>
+
+      <div class="block details">
+        <b>Titel:</b> ROTIUM<br>
+        <b>Genre:</b> <a href="#">Action</a>, <a href="#">Indie</a><br>
+        <b>Entwickler:</b> <a href="#">Beyd</a><br>
+        <b>Publisher:</b> <a href="#">Beyd</a><br>
+        <b>Veröffentlichung:</b> Demnächst
+      </div>
+
+      <div class="block links">
+        <div class="bh">Links</div>
+        <a href="../play/">Im Browser spielen</a>
+        <a href="https://github.com/beydo7/rotium-releases/releases/latest">Aktuelle Version (Windows)</a>
+        <a href="https://beydo7.itch.io/rotium">itch.io</a>
+        <a href="https://github.com/beydo7/rotium-releases/issues">Fehler melden &amp; Ideen</a>
+      </div>
+
+      <div class="block">
+        <div class="bh">Kapselbilder (Vorschau)</div>
+        <img src="img/capsule_main.jpg" alt="" style="width:100%;display:block;margin-bottom:6px">
+        <div style="display:grid;grid-template-columns:42% 1fr;gap:6px;align-items:start">
+          <img src="img/capsule_vertical.jpg" alt="" style="width:100%;display:block">
+          <img src="img/capsule_small.jpg" alt="" style="width:100%;display:block">
+        </div>
+        <div style="font-size:11px;color:#8f98a0;margin-top:6px">So erscheint ROTIUM in Listen, Suche und Bibliothek.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="foot"><div class="wrap">
+  <div class="logo">ROT<b>IUM</b></div>
+  <div>Entwurf einer Shop-Seite für ROTIUM. Steam ist eine Marke der Valve Corporation; diese Vorschau steht in keiner Verbindung zu Valve.<br>Bilder und Videos: echte Aufnahmen aus dem Spiel.</div>
+</div></div>
+
+<div class="lb" id="lb"><img id="lbimg" alt=""><div class="bar"><span id="lbprev">◀</span><span id="lbn"></span><span id="lbnext">▶</span><span id="lbx">Schließen</span></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const MEDIA = [{v:'vid/trailer.mp4',p:'img/trailer_m.jpg',t:'img/trailer_t.jpg'}];
+for (let i = 1; i <= 15; i++) { const n = String(i).padStart(2,'0'); MEDIA.push({m:`img/ss${n}_m.jpg`, f:`img/ss${n}.jpg`, t:`img/ss${n}_t.jpg`}); }
+const player = document.getElementById('player'), row = document.getElementById('row'), knob = document.getElementById('knob');
+let cur = 0, auto = null;
+MEDIA.forEach((m, i) => {
+  const d = document.createElement('div'); d.className = 'thumb' + (m.v ? ' vid' : '');
+  d.innerHTML = `<img src="${m.t}" alt="" loading="lazy">`; d.onclick = () => { stopAuto(); show(i); };
+  row.appendChild(d);
+});
+function show(i) {
+  cur = (i + MEDIA.length) % MEDIA.length; const m = MEDIA[cur];
+  player.innerHTML = m.v
+    ? `<video class="fade" src="${m.v}" poster="${m.p}" controls autoplay muted playsinline></video>`
+    : `<img class="fade" src="${m.m}" srcset="${m.m} 640w, ${m.f} 1920w" sizes="600px" alt="">`;
+  const v = player.querySelector('video'); if (v) v.onended = () => { show(1); startAuto(); };
+  [...row.children].forEach((c, k) => c.classList.toggle('on', k === cur));
+  const vis = 5, max = MEDIA.length - vis, off = Math.max(0, Math.min(max, cur - 2));
+  row.style.transform = `translateX(${-off * 120}px)`;
+  const tw = knob.parentElement.clientWidth, kw = tw * vis / MEDIA.length;
+  knob.style.width = kw + 'px'; knob.style.left = (max ? off / max * (tw - kw) : 0) + 'px';
+}
+function startAuto() { stopAuto(); auto = setInterval(() => { if (!MEDIA[cur].v) show(cur + 1 >= MEDIA.length ? 1 : cur + 1); }, 5000); }
+function stopAuto() { if (auto) clearInterval(auto); auto = null; }
+document.getElementById('prev').onclick = () => { stopAuto(); show(cur - 1); };
+document.getElementById('next').onclick = () => { stopAuto(); show(cur + 1); };
+show(0);
+
+// Bildanzeige groß
+const lb = document.getElementById('lb'), lbimg = document.getElementById('lbimg'), lbn = document.getElementById('lbn');
+const shots = MEDIA.map((m, i) => i).filter(i => !MEDIA[i].v);
+function lbShow(i) { cur = i; lbimg.src = MEDIA[i].f; lbn.textContent = `${shots.indexOf(i) + 1} / ${shots.length}`; lb.classList.add('on'); }
+player.onclick = e => { if (!MEDIA[cur].v) { stopAuto(); lbShow(cur); } };
+const step = d => { let k = shots.indexOf(cur) + d; k = (k + shots.length) % shots.length; lbShow(shots[k]); show(shots[k]); };
+document.getElementById('lbprev').onclick = e => { e.stopPropagation(); step(-1); };
+document.getElementById('lbnext').onclick = e => { e.stopPropagation(); step(1); };
+document.getElementById('lbx').onclick = () => lb.classList.remove('on');
+lb.onclick = e => { if (e.target === lb) lb.classList.remove('on'); };
+document.addEventListener('keydown', e => { if (!lb.classList.contains('on')) return;
+  if (e.key === 'Escape') lb.classList.remove('on'); if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
+
+// Knöpfe (nur Spielerei)
+const toast = document.getElementById('toast'); let tt = null;
+function say(t) { toast.textContent = t; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 2600); }
+document.querySelectorAll('[data-toast]').forEach(b => b.onclick = () => say(b.dataset.toast));
+let wished = false;
+function wish() { wished = !wished;
+  document.getElementById('wish').classList.toggle('added', wished);
+  document.getElementById('wish').textContent = wished ? '✔ Auf der Wunschliste' : 'Auf die Wunschliste';
+  document.getElementById('wish2').textContent = wished ? '✔ Auf der Wunschliste' : 'Auf die Wunschliste';
+  say(wished ? 'Vorschau: So würde es aussehen, wenn ROTIUM auf deiner Wunschliste steht.' : 'Von der Wunschliste entfernt (nur Vorschau).'); }
+document.getElementById('wish').onclick = wish; document.getElementById('wish2').onclick = wish;
+document.getElementById('follow').onclick = function () { this.classList.toggle('added'); this.textContent = this.classList.contains('added') ? '✔ Folge ich' : 'Folgen'; };
+document.querySelector('.tag.more').onclick = () => say('Weitere Tags: Wellen-Survival, Top-Down, Bunt, Comedy, Story, Einzelspieler');
+</script>
+</body>
+</html>
