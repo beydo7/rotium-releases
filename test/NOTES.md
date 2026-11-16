@@ -1,13 +1,11 @@
-**Testversion: Zombies sehen besser aus**
+**Testversion: Kamera, Lebensbalken, Rekorde, Pakt-Übersicht**
 
-Die Zombies wurden überarbeitet, damit sie mehr nach fertigem Spiel aussehen – gleicher Stil, mehr Tiefe:
+- **Kamera weicht Gebäuden aus:** Steht ein Haus, ein Container oder ein Felsen zwischen dir und der Kamera, rückt sie automatisch davor – kein Blick mehr durchs Dach. Abschaltbar unter Optionen → Kamera.
+- **Lebensbalken im Nachschub:** Oben im Shop siehst du dein Leben. Fährst du über die Heilung oder ein Upgrade mit mehr Max-Leben, zeigt der Balken, was dazukommt. Bei wenig Leben ist die Heilung als „Empfohlen“ markiert. Im Koop siehst du auch das Leben deines Mitspielers.
+- **Rekorde je Figur und Karte:** In den Personalakten steht für jede Figur der beste Einsatz und der Rekord auf jeder Karte. Knackst du ihn, gibt's im Bericht einen Stempel.
+- **Pakt mit Überblick:** Beim Pakt siehst du jetzt alle 20 Wellen (Boss-Wellen mit Totenkopf), was als Nächstes kommt, dein Leben und deinen Schrott – und bei manchen Pakten, was sie konkret ändern (z. B. „Max-Leben: 120 → 84“).
+- **Waffenart im Pausemenü:** Fährst du in der Pause über eine Waffe, steht dabei, welche Art sie ist (Feuer, Eis, Strom, Rotium …).
 
-- **Schatten in Fugen und Falten:** Hals, Kinn, Gürtel, Bauch und Rippen bekommen echte Tiefe, die Figuren wirken nicht mehr wie zusammengesteckte Teile.
-- **Fahlere Haut:** grau-grün statt Bonbon-Mint, weiche Leichenflecken und feine Adern. Haut glänzt leicht feucht, Kleidung ist matt und hat Falten.
-- **Blut und Wunden:** dunkler, auf Stoff eingetrocknet und bräunlich, Wunden mit Kruste statt roter „Aufkleber“.
-- **Körperform:** Brust, runder Rücken, hängende Schultern; die Arme sitzen näher am Körper.
-- **Augen** leuchten stärker.
-
-**Worauf achten:** Gefallen euch die Zombies so? Sind sie nachts noch gut zu erkennen? Merkt ihr irgendwo weniger FPS als vorher (sollte nicht so sein)?
+**Worauf achten:** Fühlt sich die Kamera an engen Stellen (Grauheim, Fort Granit) gut an oder springt sie? Passt der Lebensbalken?
 
 Fehler bitte mit **F8** kopieren und in #fehlerberichte posten.
