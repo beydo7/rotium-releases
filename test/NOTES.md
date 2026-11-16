@@ -5,6 +5,7 @@
 - **Rekorde je Figur und Karte:** In den Personalakten steht für jede Figur der beste Einsatz und der Rekord auf jeder Karte. Knackst du ihn, gibt's im Bericht einen Stempel.
 - **Pakt mit Überblick:** Beim Pakt siehst du jetzt alle 20 Wellen (Boss-Wellen mit Totenkopf), was als Nächstes kommt, dein Leben und deinen Schrott – und bei manchen Pakten, was sie konkret ändern (z. B. „Max-Leben: 120 → 84“).
 - **Waffenart im Pausemenü:** Fährst du in der Pause über eine Waffe, steht dabei, welche Art sie ist (Feuer, Eis, Strom, Rotium …).
+- **Lexikon:** Der große Anfangsbuchstabe am Absatzanfang hängt nicht mehr abgetrennt neben dem Text.
 
 **Worauf achten:** Fühlt sich die Kamera an engen Stellen (Grauheim, Fort Granit) gut an oder springt sie? Passt der Lebensbalken?
 
