@@ -1,12 +1,4 @@
-**Testversion: Kamera, Lebensbalken, Rekorde, Pakt-Übersicht**
+# Testversion (17. Nov. 2026, nach v3.18)
 
-- **Kamera weicht Gebäuden aus:** Steht ein Haus, ein Container oder ein Felsen zwischen dir und der Kamera, rückt sie automatisch davor – kein Blick mehr durchs Dach. Abschaltbar unter Optionen → Kamera.
-- **Lebensbalken im Nachschub:** Oben im Shop siehst du dein Leben. Fährst du über die Heilung oder ein Upgrade mit mehr Max-Leben, zeigt der Balken, was dazukommt. Bei wenig Leben ist die Heilung als „Empfohlen“ markiert. Im Koop siehst du auch das Leben deines Mitspielers.
-- **Rekorde je Figur und Karte:** In den Personalakten steht für jede Figur der beste Einsatz und der Rekord auf jeder Karte. Knackst du ihn, gibt's im Bericht einen Stempel.
-- **Pakt mit Überblick:** Beim Pakt siehst du jetzt alle 20 Wellen (Boss-Wellen mit Totenkopf), was als Nächstes kommt, dein Leben und deinen Schrott – und bei manchen Pakten, was sie konkret ändern (z. B. „Max-Leben: 120 → 84“).
-- **Waffenart im Pausemenü:** Fährst du in der Pause über eine Waffe, steht dabei, welche Art sie ist (Feuer, Eis, Strom, Rotium …).
-- **Lexikon:** Der große Anfangsbuchstabe am Absatzanfang hängt nicht mehr abgetrennt neben dem Text.
-
-**Worauf achten:** Fühlt sich die Kamera an engen Stellen (Grauheim, Fort Granit) gut an oder springt sie? Passt der Lebensbalken?
-
-Fehler bitte mit **F8** kopieren und in #fehlerberichte posten.
+- 46 Fehler aus der großen Fehlersuche behoben (Hitboxen, Koop, Fortsetzen, Pakte, Waffen, Texte …)
+- Balancing: Ab Welle 15 bekommen die Zombies jede Welle 10 % mehr Leben (W20 ≈ ×1,8, W25 ≈ ×2,9, W30 ≈ ×4,6). Bosse wachsen nur halb so stark mit.
