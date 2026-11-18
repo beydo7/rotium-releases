@@ -3,3 +3,5 @@
 Alle Funde aus dem großen Spiel-Check v3.20 behoben (Schwer, Mittel, Leicht).
 Koop läuft nur noch über Steam (Verbindung per IP-Adresse entfernt).
 In der Browser-Version ist Koop wie gehabt aus.
+
+Neu: Werte-Übersicht (Tab) in zwei Spalten, passt immer ins Bild. Nachschub: Verschrotten-Liste zuklappbar, kein Scrollen mehr nötig.
