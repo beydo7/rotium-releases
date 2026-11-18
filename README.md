@@ -10,6 +10,7 @@
   <a href="https://github.com/beydo7/rotium-releases/releases"><img src="https://img.shields.io/github/downloads/beydo7/rotium-releases/total?label=DOWNLOADS&style=for-the-badge&color=d9a441&labelColor=1a1410" alt="Downloads"></a>
   <a href="https://discord.gg/6yuVzSg8vg"><img src="https://img.shields.io/badge/DISCORD-Komm_rein-5865F2?style=for-the-badge&logo=discord&logoColor=white&labelColor=1a1410" alt="Discord"></a>
   <a href="https://www.tiktok.com/@rotium_game"><img src="https://img.shields.io/badge/TIKTOK-@rotium__game-ff3b5c?style=for-the-badge&logo=tiktok&logoColor=white&labelColor=1a1410" alt="TikTok"></a>
+  <a href="https://www.instagram.com/beyd_o7/"><img src="https://img.shields.io/badge/INSTAGRAM-@beyd__o7-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=1a1410" alt="Instagram"></a>
   <a href="https://www.youtube.com/@beydo7"><img src="https://img.shields.io/badge/YOUTUBE-Videos-e62117?style=for-the-badge&logo=youtube&logoColor=white&labelColor=1a1410" alt="YouTube"></a>
   <a href="https://beydo7.github.io/rotium-releases/links/"><img src="https://img.shields.io/badge/ALLE_LINKS-%E2%86%92-ece2c8?style=for-the-badge&labelColor=1a1410" alt="Alle Links"></a>
 </p>
