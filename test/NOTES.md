@@ -1,4 +1,3 @@
-# Testversion (17. Nov. 2026, nach v3.18)
+# Testversion (18. Nov. 2026, nach v3.19)
 
-- 46 Fehler aus der großen Fehlersuche behoben (Hitboxen, Koop, Fortsetzen, Pakte, Waffen, Texte …)
-- Balancing: Ab Welle 15 bekommen die Zombies jede Welle 10 % mehr Leben (W20 ≈ ×1,8, W25 ≈ ×2,9, W30 ≈ ×4,6). Bosse wachsen nur halb so stark mit.
+- HUD ohne Überlappen: Meldungen (Toast, Wellen-Banner, „Akte erledigt“) legen sich unter Befehl/Ereignis statt darüber, die Erfolgs-Karte fährt unter der rechten Tafel ein, Kill-Serie sitzt neben der Wellenzahl, unten stapeln sich Funk, Benutzen-Hinweis, Power-Ups und Boss-Leiste, die Mittelspalte wird bei großer HUD-Größe schmaler.
