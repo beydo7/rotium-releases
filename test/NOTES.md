@@ -1,7 +1,11 @@
-# Testversion (nach v3.20) – Fehlerjagd
+# Testversion (19. Nov. 2026, nach v3.21)
 
-Alle Funde aus dem großen Spiel-Check v3.20 behoben (Schwer, Mittel, Leicht).
-Koop läuft nur noch über Steam (Verbindung per IP-Adresse entfernt).
-In der Browser-Version ist Koop wie gehabt aus.
+Fehlerrunde aus dem Spiel-Check v3.21 – noch NICHT veröffentlicht.
 
-Neu: Werte-Übersicht (Tab) in zwei Spalten, passt immer ins Bild. Nachschub: Verschrotten-Liste zuklappbar, kein Scrollen mehr nötig.
+**Bitte besonders ansehen:**
+- **Browser-Farben:** Hauptmenü und Einsatz hier im Browser neben der Windows-Version – Figuren, Zombies und Boden sollten jetzt gleich aussehen (vorher fast schwarz bzw. blutrot).
+- Kantenglättung im Browser heißt jetzt „MSAA 2×“ (vorher FXAA ohne Wirkung).
+- Tab halten mitten im Kampf: kein Ruckeln mehr.
+- Taste M / Lautstärke-Regler im Einsatz: kein kurzer Hänger mehr.
+
+Sonst: Gerd stirbt nicht mehr an Wänden, Fortsetzen behält Nachschub-Angebote und Lager-Boni, viele Koop-Kleinigkeiten, Akten zählen richtig.
