@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/beydo7/rotium-releases/releases/latest"><img src="https://img.shields.io/badge/VERSION-v3.21-c8283a?style=for-the-badge&labelColor=1a1410" alt="Version"></a>
+  <a href="https://github.com/beydo7/rotium-releases/releases/latest"><img src="https://img.shields.io/badge/VERSION-v3.22-c8283a?style=for-the-badge&labelColor=1a1410" alt="Version"></a>
   <a href="https://github.com/beydo7/rotium-releases/releases"><img src="https://img.shields.io/github/downloads/beydo7/rotium-releases/total?label=DOWNLOADS&style=for-the-badge&color=d9a441&labelColor=1a1410" alt="Downloads"></a>
   <a href="https://discord.gg/6yuVzSg8vg"><img src="https://img.shields.io/badge/DISCORD-Komm_rein-5865F2?style=for-the-badge&logo=discord&logoColor=white&labelColor=1a1410" alt="Discord"></a>
   <a href="https://www.tiktok.com/@rotium_game"><img src="https://img.shields.io/badge/TIKTOK-@rotium__game-ff3b5c?style=for-the-badge&logo=tiktok&logoColor=white&labelColor=1a1410" alt="TikTok"></a>
